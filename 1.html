@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="newspaper-container">
+        <header>
+            <h1>Deccan Chronicle</h1>
+            <p class="date">August 29, 2024</p>
+        </header>
+<nav class="navbar">
+        <ul>
+            <li class="dropdown">
+                <button onclick="toggleDropdown('sportDropdown')" class="dropbtn">Sport News</button>
+                <div id="sportDropdown" class="dropdown-content">
+                    <a href="#">Local</a>
+                    <a href="#">National</a>
+                    <a href="#">International</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <button onclick="toggleDropdown('techDropdown')" class="dropbtn">Tech News</button>
+                <div id="techDropdown" class="dropdown-content">
+                    <a href="#">Gadgets</a>
+                    <a href="#">Software</a>
+                    <a href="#">Reviews</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <button onclick="toggleDropdown('entertainmentDropdown')" class="dropbtn">Entertainment</button>
+                <div id="entertainmentDropdown" class="dropdown-content">
+                    <a href="#">Movies</a>
+                    <a href="#">Music</a>
+                    <a href="#">TV Shows</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <button onclick="toggleDropdown('businessDropdown')" class="dropbtn">Business</button>
+                <div id="businessDropdown" class="dropdown-content">
+                    <a href="#">Local</a>
+                    <a href="#">Global</a>
+                    <a href="#">Startups</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <button onclick="toggleDropdown('lifestyleDropdown')" class="dropbtn">Lifestyle</button>
+                <div id="lifestyleDropdown" class="dropdown-content">
+                    <a href="#">Health</a>
+                    <a href="#">Travel</a>
+                    <a href="#">Food</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+<table class = "t1">
+    <tr>
+        <td><b><p>Vistara to merge with Air India from November 12</p></b>when its operations will be carried out by Air India and all bookings will be redirected to Air India’s website.
+</td>
+<td> <img src="vistara.png" alt="Icon" width="70" height="60"></td>
+        <td>11</td>
+        <!-- Display a vertical line only between the following columns -->
+        <td><b><p>
+Paris Paralympics: Archer Sheetal Devi's record-breaking start</p></b>Sheetal's new world record gets broken by a point, finishes second in women's indivividual compound open ranking round</td>
+<td> <img src="s.png" alt="Icon" width="70" height="90"></td>
+        <td>14</td>
+    </tr>
+</table>
+
+        <div class="main-content">
+            <!-- Left Column: Weather Forecast -->
+            <aside class="left-column">
+                <h2>Weather Forecast</h2>
+           <table class="weather-table" background="white">
+  <tr>
+    <td>
+      <img src="r1.png" alt="Weather Icon" width="50" height="60">
+    </td>
+    <td>
+      <strong>Temperature:<br></strong>
+      <strong>Min:</strong> 21°C<br>
+      <strong>Max:</strong> 45°C<br>
+      <strong>Rainfall:</strong> 25 mm
+    </td>
+  </tr>
+</table>
+<h2><center>IoT Devices</center></h2>
+<ul link-style-type: "square">
+<li>There are over 14 billion connected IoT devices globally, and this number is expected to grow to 25.44 billion by 2030.</li> 
+<li>IoT devices can communicate with other devices and applications and services in the cloud.</li> 
+<li>IoT devices can make operations more efficient, which can save time and money.</li> 
+</ul>
+<center><img src="12.png" width="200"></img></center>
+            </aside>
+
+            <!-- Right Column: Articles -->
+            <section class="right-column">
+    <article>
+        <h2>AI Advances in Healthcare</h2>
+        <p>
+            <img src="ai.png" height="150" width="150" alt="AI in Healthcare" class="inline-image">Artificial Intelligence (AI) is transforming healthcare by improving diagnostics and personalizing treatments. Advanced AI algorithms now analyze medical images with high accuracy, often exceeding human radiologists. 
+They detect early signs of diseases like cancer and cardiovascular conditions from scans and records. AI tools are also customizing treatment plans based on individual genetic profiles and health histories, enhancing diagnostic precision and therapeutic outcomes.
+        </p>
+    </article>
+    
+    <article>
+        <h2>The Rise of Quantum Computing</h2>
+        <p><img src="qc.jpg" height="200" width="150" alt="AI in Healthcare" class="inline-image">Quantum computing is set to revolutionize technology by solving complex problems beyond classical computers’ reach. Unlike traditional computers that use bits, quantum computers use qubits to handle multiple states simultaneously, enabling unprecedented calculation speeds. This technology promises breakthroughs
+ in fields like cryptography, materials science, and pharmaceuticals by simulating molecular structures, optimizing systems, and enhancing encryption. As research advances, quantum computing could lead to a new era of innovation and problem-solving.
+        </p>
+    </article>
+</section>
+
+
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Deccan Chronicle. All rights reserved.</p>
+        </footer>
+    </div>
+<script>
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            dropdown.classList.toggle('show');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

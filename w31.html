@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Properties</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Top frame */
+        .top-frame {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Left frame */
+        .left-frame {
+            width: 220px;
+            height: calc(100vh - 50px);
+            background-color: #343A40;
+            padding: 15px;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            color: #ffffff;
+        }
+
+        .left-frame a {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #495057;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .left-frame a:hover {
+            background-color: #6C757D;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        .content-section {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .content-heading {
+            font-size: 22px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            background-color: #FFC107;
+            padding: 10px;
+            border-radius: 5px;
+            color: #212529;
+        }
+
+        .hidden-content {
+            display: none;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #DEE2E6;
+            border-radius: 5px;
+        }
+
+        .content-heading-relative {
+            position: relative;
+        }
+
+        .content-heading-absolute {
+            position: absolute;
+            top: 670px;
+            left: 20px;
+        }
+
+        .content-heading-static {
+            position: static; 
+        }
+
+        .content-heading-sticky {
+            position: sticky;
+            top: 0;
+            background-color: #FFC107;
+            z-index: 1;
+        }
+
+        .ai-fun-fact {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            right: 20px;  /* Adjust as needed */
+            width: 300px; /* Adjust width as needed */
+            background-color: #28A745;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 2; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-frame">
+        CSS Position Properties
+    </div>
+
+    <div class="left-frame">
+        <a href="#" onclick="showContent('combined')">ML</a>
+        <a href="#" onclick="showContent('combined1')">AI</a>
+    </div>
+
+    <div class="main-content">
+        <div id="combined" class="content-section">
+            <div class="content-heading content-heading-relative" onclick="toggleContent('ml-dl-content')">Machine Learning</div>
+            <div id="ml-dl-content" class="hidden-content">
+                <div class="content-heading content-heading-relative" onclick="toggleContent('ml-content')">Machine Learning</div>
+                <div id="ml-content" class="hidden-content">
+                    <p>Machine learning (ML) is a subset of artificial intelligence (AI) that allows systems to learn and improve without being explicitly programmed. ML algorithms use data and patterns to make predictions when new data is inputted into the system. ML is an application of AI that allows machines to autonomously extract knowledge from data and learn from it.</p>
+                    <center><img src="ml.jpeg" height="650"></center>
+                </div>
+		
+                <div class="content-heading content-heading-absolute" onclick="toggleContent('dl-content')">
+                    <p>Machine learning algorithms were inspired by the way humans learn.<br> One of the early pioneers of machine learning, Arthur Samuel, coined the term "machine learning" in 1959. He was particularly inspired by the game of checkers. Samuel designed an algorithm that allowed a computer to play checkers and improve its performance over time. His system learned from each game it played, gradually refining its strategy based on past experiences. This concept of learning from data and experience is fundamental to modern machine learning!</p>
+                </div>
+              
+            </div>
+        </div>
+
+        <div id="combined1" class="content-section">
+            <div class="content-heading content-heading-static" onclick="toggleContent('ai-content')">Artificial Intelligence</div>
+            <div id="ai-content" class="hidden-content">
+                <p>Artificial intelligence (AI), in its broadest sense, is intelligence exhibited by machines, particularly computer systems. It is a field of research in computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize their chances of achieving defined goals.</p>
+                <p>Subsets of AI:<br>Computer vision is a field of computer science that focuses on enabling computers to identify and understand objects and people in images and videos. Like other types of AI, computer vision seeks to perform and automate tasks that replicate human capabilities.</p>
+            </div>
+
+            <div class="content-heading content-heading-sticky" onclick="toggleContent('ml-algorithms-content')">ML Algorithms</div>
+            <div id="ml-algorithms-content" class="hidden-content">
+                <center><img src="mlalgo.jpg" height="650"></center>
+                <ul>
+                    <li><strong>Linear Regression</strong>: A statistical method used to model and analyze the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between the variables.</li>
+                    <li><strong>Logistic Regression</strong>: Used for binary classification problems. It estimates the probability of a binary outcome based on one or more predictor variables using the logistic function.</li>
+                    <li><strong>Decision Trees</strong>: A tree-like model used to make decisions based on the values of input features. It splits data into subsets based on feature values, creating a tree structure with decisions at each node.</li>
+                    <li><strong>Support Vector Machines (SVM)</strong>: A classification technique that finds the hyperplane that best separates different classes in the feature space. It maximizes the margin between classes.</li>
+                    <li><strong>K-Nearest Neighbors (KNN)</strong>: A non-parametric algorithm used for classification and regression. It classifies a data point based on the majority class among its k-nearest neighbors.</li>
+                    <li><strong>Naive Bayes</strong>: A probabilistic classifier based on Bayes' theorem. It assumes that the features are independent of each other given the class label.</li>
+                    <li><strong>Random Forest</strong>: An ensemble learning method that creates multiple decision trees and combines their results to improve accuracy and control overfitting.</li>
+                    <li><strong>Gradient Boosting Machines (GBM)</strong>: A boosting technique that builds models sequentially, with each model correcting the errors of its predecessor. It combines weak learners to form a strong learner.</li>
+                    <li><strong>K-Means Clustering</strong>: An unsupervised learning algorithm used to partition data into k clusters, where each data point belongs to the cluster with the nearest mean.</li>
+                    <li><strong>Hierarchical Clustering</strong>: A clustering method that builds a hierarchy of clusters either by progressively merging smaller clusters or splitting larger clusters.</li>
+                    <li><strong>Principal Component Analysis (PCA)</strong>: A dimensionality reduction technique that transforms data into a set of orthogonal (uncorrelated) components, capturing the most variance in the data.</li>
+                    <li><strong>t-Distributed Stochastic Neighbor Embedding (t-SNE)</strong>: A technique for dimensionality reduction that is particularly good for visualizing high-dimensional data by mapping it to a lower-dimensional space.</li>
+                    <li><strong>Apriori Algorithm</strong>: An algorithm used for mining frequent itemsets and discovering association rules in transactional data.</li>
+                    <li><strong>Q-Learning</strong>: A reinforcement learning algorithm that learns the value of actions in different states to determine the best action to take in a given state.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="ai-fun-fact">
+            <strong>Fun Fact about AI:</strong><br>
+            Did you know? The term "Artificial Intelligence" was first coined by John McCarthy in 1955!
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function showContent(sectionId) {
+            var sections = document.getElementsByClassName('content-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
