@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating System</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .star-rating {
+            font-size: 2em;
+            color: #ddd;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .star-rating span {
+            display: inline-block;
+            padding: 0 5px;
+        }
+
+        .star-rating span:hover,
+        .star-rating span.hover {
+            color: gold;
+        }
+
+        .star-rating span.active {
+            color: gold;
+        }
+
+        .rating-message {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .rating-message strong {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flower Wase</h1>
+        <div>
+            <img src="fw.jpg" width="400px" height="400px" alt="Flower">
+        </div>
+        <div class="star-rating" role="radiogroup" aria-labelledby="rating-message">
+            <p style="color: black">Review:</p>
+            <span data-value="1" aria-label="1 star">&#9733;</span>
+            <span data-value="2" aria-label="2 stars">&#9733;</span>
+            <span data-value="3" aria-label="3 stars">&#9733;</span>
+            <span data-value="4" aria-label="4 stars">&#9733;</span>
+            <span data-value="5" aria-label="5 stars">&#9733;</span>
+        </div>
+        <input type="hidden" id="rating" name="rating" value="0">
+        <div class="rating-message" id="rating-message">You have rated: <strong id="rating-display">0</strong> star(s)</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // JavaScript/jQuery
+        $(document).ready(function() {
+            const $stars = $('.star-rating span');
+            const $ratingInput = $('#rating');
+            const $ratingDisplay = $('#rating-display');
+
+            $stars.on('mouseover', function() {
+                const value = $(this).data('value');
+                $stars.each(function() {
+                    $(this).toggleClass('hover', $(this).data('value') <= value);
+                });
+            });
+
+            $stars.on('mouseout', function() {
+                $stars.removeClass('hover');
+            });
+
+            $stars.on('click', function() {
+                const value = $(this).data('value');
+                $stars.removeClass('active');
+                $stars.filter(function() {
+                    return $(this).data('value') <= value;
+                }).addClass('active');
+                $ratingInput.val(value);
+                $ratingDisplay.text(value);
+            });
+        });
+    </script>
+</body>
+</html>
