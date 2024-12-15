@@ -44,13 +44,13 @@ const App = () => {
   };
 
   return (
-    <div className="calculator"> {/* Calculator container */}
+    <div className="calculator"> 
       <h1>React Calculator</h1>
-      {/* Display previous input and operation */}
+      
       <div className="calc-display">
         {previousInput} {operation}
       </div>
-      {/* Current input */}
+      
       <input type="text" value={currentInput} readOnly className="calc-display" />
       <div className="button-container">
         {['1', '2', '3', '+', '4', '5', '6', '-', '7', '8', '9', '*', '0', '.', '/', 'C'].map((btn) => (
