@@ -27,7 +27,7 @@ const App = () => {
         return;
       }
       result = eval(previousInput + operation + currentInput);
-      setCurrentInput(result);
+      setCurrentInput(result.toString());
       setPreviousInput('');
       setOperation('');
     } catch (e) {
@@ -46,6 +46,11 @@ const App = () => {
   return (
     <div className="calculator"> {/* Calculator container */}
       <h1>React Calculator</h1>
+      {/* Display previous input and operation */}
+      <div className="calc-display">
+        {previousInput} {operation}
+      </div>
+      {/* Current input */}
       <input type="text" value={currentInput} readOnly className="calc-display" />
       <div className="button-container">
         {['1', '2', '3', '+', '4', '5', '6', '-', '7', '8', '9', '*', '0', '.', '/', 'C'].map((btn) => (
